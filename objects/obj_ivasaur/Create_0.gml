@@ -1,0 +1,14 @@
+event_inherited()
+max_HP=150;
+HP=150;
+defence_bonus=0;
+attack_bonus=0;
+active=0;
+type=ELEMENTALTYPES.grass
+damage=1+1/3
+name="Ivasaur"
+alive=1
+sound=sound_ivasaur
+vineWhip=constructVineWhip()
+growl=constructGrowl()
+ds_list_add(movesList,vineWhip,growl)

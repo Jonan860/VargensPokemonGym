@@ -1,0 +1,1 @@
+visible = global.phase == PHASES.buy or global.phase == PHASES.sell

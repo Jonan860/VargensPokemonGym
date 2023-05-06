@@ -1,0 +1,94 @@
+Converting GML script: ${project_dir}\scripts\get_type_bonus\get_type_bonus.gml
+Converted description /// @description get_type_bonus(type_self,type_other)/// @param type_self
+/// @param type_other
+
+Converting GML script: ${project_dir}\scripts\get_damage\get_damage.gml
+Converted description /// @description get_damage(n,damage,attack_bonus)/// @param n
+/// @param damage
+/// @param attack_bonus
+
+Converting GML script: ${project_dir}\scripts\get_defence_bonus\get_defence_bonus.gml
+Converted description /// @description get_defence_bonus(defence,defence_bonus)/// @param defence
+/// @param defence_bonus
+
+Converting GML script: ${project_dir}\scripts\damage_calculate\damage_calculate.gml
+Converted description /// @description damage_calculate(perpetrator,victim,move_type,damage,crit)/// @param perpetrator
+/// @param victim
+/// @param move_type
+/// @param damage
+/// @param crit
+
+Converting GML script: ${project_dir}\scripts\scr_meowth\scr_meowth.gml
+ERROR: C:\Users\lille\OneDrive\Dokument\GameMakerStudio2\BAMSE_VARGENS_POKEMON_GYM_export\scripts\scr_meowth\scr_meowth.gml - 29: nested function calls are not allowed
+Too many errors - GML not processed : ${project_dir}\scripts\scr_meowth\scr_meowth.gml
+
+Converting GML script: ${project_dir}\scripts\scr_psy_cutter_enemy\scr_psy_cutter_enemy.gml
+Converted description /// @description //transformerar till anti deskriminerande
+
+Converting GML script: ${project_dir}\scripts\scr_espeon\scr_espeon.gml
+Converted description /// @description /scr_espeon()
+
+Converting GML script: ${project_dir}\scripts\scr_confusion\scr_confusion.gml
+ERROR: C:\Users\lille\OneDrive\Dokument\GameMakerStudio2\BAMSE_VARGENS_POKEMON_GYM_export\scripts\scr_confusion\scr_confusion.gml - 3: nested function calls are not allowed
+Too many errors - GML not processed : ${project_dir}\scripts\scr_confusion\scr_confusion.gml
+
+Converting GML script: ${project_dir}\scripts\scr_attack\scr_attack.gml
+Converted description /// @description scr_attack(type_self,type_other,opponent.hp,self_attack)/// @param type_self
+/// @param type_other
+/// @param opponent.hp
+/// @param self_attack
+
+Font font0 has been converted to font family Arial (Regular) - Font has been regenerated, small inconsistencies may occur
+Font font1 has been converted to font family Arial (Regular) - Font has been regenerated, small inconsistencies may occur
+Font font2 has been converted to font family Arial (Regular) - Font has been regenerated, small inconsistencies may occur
+Converting GML script: ${project_dir}\objects\obj_confusion\Create_0.gml
+Converted builtin - line 2: background_index=background3 -> __background_set( e__BG.Index, 0, background3 )
+
+Converting GML script: ${project_dir}\objects\obj_confusion\Step_0.gml
+Converted builtin - line 5: background_index=background3 -> __background_set( e__BG.Index, 0, background3 )
+
+Windows NSIS Installer Script has been set to default due to changes in GameMaker Studio 2
+Missing audiogroup for sound: 'sound_svenska' - setting to default audio group
+Missing audiogroup for sound: 'sound_norska' - setting to default audio group
+Missing audiogroup for sound: 'sound_tail_whip' - setting to default audio group
+Missing audiogroup for sound: 'sound_growl' - setting to default audio group
+Missing audiogroup for sound: 'sound_psy_cutter' - setting to default audio group
+Missing audiogroup for sound: 'sound_defence_curl' - setting to default audio group
+Missing audiogroup for sound: 'sound_bubble' - setting to default audio group
+Missing audiogroup for sound: 'sound_ember' - setting to default audio group
+Missing audiogroup for sound: 'sound_vine_whip' - setting to default audio group
+Missing audiogroup for sound: 'sound_sleep' - setting to default audio group
+Missing audiogroup for sound: 'sound_pickachucry' - setting to default audio group
+Missing audiogroup for sound: 'sound_franky_theme' - setting to default audio group
+Missing audiogroup for sound: 'sound_elite_four' - setting to default audio group
+Missing audiogroup for sound: 'sound_ivasaur' - setting to default audio group
+Missing audiogroup for sound: 'sound_charmander' - setting to default audio group
+Missing audiogroup for sound: 'sound_squirtle' - setting to default audio group
+Missing audiogroup for sound: 'sound_bulbasaur' - setting to default audio group
+Missing audiogroup for sound: 'sound_wartortle' - setting to default audio group
+Missing audiogroup for sound: 'sound_charmeleon' - setting to default audio group
+Missing audiogroup for sound: 'sound_mewtwo' - setting to default audio group
+Missing audiogroup for sound: 'sound_snorlax' - setting to default audio group
+Missing audiogroup for sound: 'sound_duck_grape' - setting to default audio group
+Missing audiogroup for sound: 'sound_minato' - setting to default audio group
+Missing audiogroup for sound: 'sound_red_army' - setting to default audio group
+Missing audiogroup for sound: 'sound_witcher' - setting to default audio group
+Missing audiogroup for sound: 'sound_luffy' - setting to default audio group
+Missing audiogroup for sound: 'sound_cow' - setting to default audio group
+Missing audiogroup for sound: 'sound_its_geodude' - setting to default audio group
+Missing audiogroup for sound: 'sound_leer' - setting to default audio group
+Missing audiogroup for sound: 'sound_rock_throw' - setting to default audio group
+Missing audiogroup for sound: 'sound_pikachu_hej_vad_heter_du' - setting to default audio group
+Missing audiogroup for sound: 'sound_i_want_to_live' - setting to default audio group
+Game speed set to 30
+Added compatibility script 'background/__background_set.gml'
+Added compatibility script 'background/__background_set_internal.gml'
+Added compatibility script 'instance/instance_create.gml'
+Added compatibility script 'object/object_get_depth.gml'
+Added compatibility script 'sound/sound_global_volume.gml'
+Added compatibility script 'background/__init_background.gml'
+Added compatibility script '__init_global.gml'
+Added compatibility script 'background/__background_get_element.gml'
+Added compatibility script 'background/__background_get_internal.gml'
+Added compatibility script 'background/__background_set_element.gml'
+Added compatibility script '__global_object_depths.gml'
