@@ -107,7 +107,7 @@ function confusionEffect(){
 	
 function charmEffect(){opponent.attack_bonus=max(-5,opponent.attack_bonus-2)}
 function scrDefenceCurlEffect(){owner.defence_bonus=min(owner.defence_bonus+1,5)}
-function scrHypnosisEffect(){if(60<=irandom(99)){scr_put_to_sleep(opponent)}}
+function scrHypnosisEffect(){if(irandom(99)<66){scr_put_to_sleep(opponent)}}
 function scrGrowlEffect(){opponent.attack_bonus=max(opponent.attack_bonus-1,-5)}
 function scrLeerEffect(){opponent.defence_bonus=max(opponent.defence_bonus-1,-5)}
 function moveDamageEffect(){opponent.HP-=damage_calculate(opponent)}

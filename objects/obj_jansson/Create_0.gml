@@ -24,7 +24,6 @@ with(espeon){x=opponent_x; y=opponent_y}
 
 path=0
 name="Jansson"
-lastroom_x=x; lastroom_y=y;
 world_x=x; world_y=y;
 defeated=0
 wait=1

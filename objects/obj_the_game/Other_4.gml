@@ -1,16 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(scrContains(room, jansson_husmus_gym, room_teddy_gym)){
+
 with(obj_enemy_trainer){roomStartSetup()}
+
+if(scrContains(room, jansson_husmus_gym, room_teddy_gym)){
 if(global.amber.defeated){
 	defeatWorldSetup()
 	}
 	global.phase = PHASES.world
 }
 
-if(isBattleRoom(room)){
-with(obj_enemy_trainer){roomStartSetup()}
-}
 
 	function defeatWorldSetup(){
 scrDefeatLoad()

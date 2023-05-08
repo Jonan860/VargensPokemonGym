@@ -32,7 +32,7 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
-  "solid": true,
+  "solid": false,
   "spriteId": {
     "name": "spr_win_girl",
     "path": "sprites/spr_win_girl/spr_win_girl.yy",

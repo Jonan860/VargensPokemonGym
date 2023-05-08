@@ -6,7 +6,7 @@ attack_bonus=0;
 accuracy_bonus=0; //remove
 active=0;
 type=ELEMENTALTYPES.psychic;
-damage=10 //1.5; /// psycutter gor 30 damage också
+damage= 1.5; /// psycutter gor 30 damage också
 name="Mewtwo"
 sound=sound_mewtwo
 if(room==difficulty){alarm[0]=60*room_speed}

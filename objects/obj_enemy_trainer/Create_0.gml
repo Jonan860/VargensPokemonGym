@@ -49,6 +49,7 @@ case roomWorld: {
 x=world_x; y=world_y;
 visible=1
 }; break;
+default : visible = 0
 }
 }
 
@@ -59,7 +60,7 @@ y = s._y
 image_xscale = s._image_xscale
 image_yscale = s._image_yscale
 world_x=s._world_x; world_y=s._world_y;
-lastroom_x = s._lastroom_x; lastroom_y = s._lastroom_y
+//lastroom_x = s._lastroom_x; lastroom_y = s._lastroom_y
 wait = s._wait
 camping = s._camping
 defeated=s._defeated
@@ -83,8 +84,8 @@ var insert = {
 	_image_yscale : image_yscale,
 	_world_x : world_x,
 	_world_y : world_y,
-	_lastroom_x : lastroom_x,
-	_lastroom_y : lastroom_y,
+//	_lastroom_x : lastroom_x,
+//	_lastroom_y : lastroom_y,
 	_wait : wait,
 	_camping : camping,
     _defeated : defeated,
@@ -92,7 +93,7 @@ var insert = {
 	_active_pokemon : noone,
 	_speed : speed,
 	_direction : direction,
-	_visible : visible 
+	_visible : visible
 }
 variable_struct_set(saveStruct,name,insert)
 

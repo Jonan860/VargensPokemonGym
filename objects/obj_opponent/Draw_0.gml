@@ -6,7 +6,7 @@ draw_set_valign(fa_top)
 draw_set_valign(fa_left)
 draw_text(x,y-150,string_hash_to_newline(name))
 draw_healthbar(x-100, y-100, x+100, y-120, pc, c_black, c_red, c_lime, 0, true, true)
-draw_healthbar(x-100, y-150, x+100, y-120, (action_bar/max_action_bar)*100, c_black, c_red, c_lime, 0, true, true)
+//draw_healthbar(x-100, y-150, x+100, y-120, (action_bar/max_action_bar)*100, c_black, c_red, c_lime, 0, true, true)
 
 draw_text(x-75,y-150,"Level "+string(level))
 draw_text(x+110,y-120,string_hash_to_newline("HP : "+string(HP)))

@@ -1,6 +1,6 @@
 if(!defeated and visible){
 speed=0
-lastroom_x= x; lastroom_y=y;
+world_x= x; world_y=y;
 global.amber.moveable=0
 global.enemy=id
 global.turn=TURNS.enemy

@@ -131,12 +131,23 @@ scrPerformStatusAilment=method(undefined,scr_amber_perform_status_ailment)
 scrSetMovable= function(){if(room=jansson_husmus_gym and moveable=0 and y>700) moveable=1}
 scrMovement = function() {
 	if(moveable){
-	var x_translation=64*(keyboard_check_pressed(vk_right)-keyboard_check_pressed(vk_left))
-	var y_translation=64*(keyboard_check_pressed(vk_down)-keyboard_check_pressed(vk_up))
-	var blocker=instance_position(x+x_translation,y+y_translation,obj_trainer)
-	if(blocker<0){x+=x_translation; y+=y_translation}
+	var x_translation=sprite_width*(keyboard_check_pressed(vk_right)-keyboard_check_pressed(vk_left))
+	var y_translation=sprite_height/2*(keyboard_check_pressed(vk_down)-keyboard_check_pressed(vk_up))
+	if (x_translation != 0 or y_translation !=0){
+	var blocker = -4
+	with(obj_trainer){
+	if(instance_position(x-x_translation,y - y_translation,other.id)){
+	var blocker = id
+	break;
+	}
+	}
+	//var blocker=instance_position(x+x_translation,y+y_translation,obj_trainer) //inheritance ancestor
+	if(blocker<0){
+		x+=x_translation; y+=y_translation
+		}
 	
-	else if(blocker.defeated){x+=x_translation; y+=y_translation}
+	else if(!blocker.visible){x+=x_translation; y+=y_translation}
+	}
 	}
 }
 

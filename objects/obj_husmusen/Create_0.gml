@@ -9,7 +9,7 @@ wait=1
 defeated=0
 path=0
 name="Husmusen"
-lastroom_x=x; lastroom_y=y;
+
 world_x=x; world_y=y;
 rattata=instance_create_depth(opponent_x,opponent_y,0,obj_rattata)
 raticate=instance_create_depth(opponent_x,opponent_y,0,obj_raticate)
