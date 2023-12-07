@@ -9,7 +9,8 @@ function damage_calculate(victim) {
 	switch(damageParadigm) {
 		case DAMAGEPARADIGMS.normal : if(critChance <= random(100)) return ceil(damageWithBonus * defenceWithBonus * typeBonus)
 		else{return ceil(2 * max(damageWithBonus * defenceWithBonus * typeBonus, damageWithoutBonus * defenceWithoutBonus * typeBonus))}; break;
-		case DAMAGEPARADIGMS.percentage : return ceil(victim.max_HP * damage / 100); break;
+		case DAMAGEPARADIGMS.percentageOfMaxHP : return ceil(victim.max_HP * damage / 100); break;
+		case DAMAGEPARADIGMS.percentageOfHP : return ceil(victim.HP * damage / 100); break;
 		case DAMAGEPARADIGMS.fixed : return ceil(damage); break;
 		case DAMAGEPARADIGMS.riddles : return ceil(number_correct_answer * damageWithBonus * defenceWithBonus * typeBonus); break;
 		case DAMAGEPARADIGMS.elementless : return ceil(damageWithBonus * defenceWithBonus)

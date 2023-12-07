@@ -11,10 +11,7 @@
     "name": "difficulty",
     "path": "folders/Objects/button/difficulty.yy",
   },
-  "parentObjectId": {
-    "name": "obj_player_button",
-    "path": "objects/obj_player_button/obj_player_button.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

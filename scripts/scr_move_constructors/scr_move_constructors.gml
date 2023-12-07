@@ -60,11 +60,6 @@ function thunderStart() {
 
 function doNothing() {}
 
-function scrEffectSuperFang() {
-	var opponent = getOpponent()
-	opponent.HP -= max(opponent.HP / 2, 1)
-}
-
 function quickAttackEffect() {
 	owner.action_bar -= owner.max_action_bar / 2
 	moveDamageEffect()
@@ -135,7 +130,7 @@ function amnesiaWillHaveEffect(){return owner.attack_bonus < 5 or owner.defence_
 
 function moveEnumToWillHaveAnEffect(_enum) {
 	switch(_enum) {
-		case MOVES.amnesia : return method(undefined, amnesiaWillHaveEffect())
+		case MOVES.amnesia : return method(undefined, amnesiaWillHaveEffect)
 		case MOVES.charm : return method(undefined, attackDebufferWillHaveEffect)
 		case MOVES.defenceCurl : return method(undefined, defenceBufferWillHaveEffect)
 		case MOVES.growl : return method(undefined, attackDebufferWillHaveEffect)
@@ -147,31 +142,31 @@ function moveEnumToWillHaveAnEffect(_enum) {
 }
 function moveEnumToName(_enum) {
 	switch(_enum) {
-		case MOVES.amnesia : return "Amnesia"; break;
-		case MOVES.bubbles : return "Bubbles"; break;
-		case MOVES.ember : return "Ember"; break;
-		case MOVES.vineWhip : return "Vine Whip"; break;
-		case MOVES.tailWhip : return "Tail Whip"; break;
-		case MOVES.charm : return "Charm"; break;
-		case MOVES.confusion : return "Confusion"; break;
-		case MOVES.defenceCurl : return "Defence Curl"; break;
-		case MOVES.leer : return "Leer"; break;
-		case MOVES.growl : return "Growl"; break;
-		case MOVES.hypnosis : return "Hypnosis"; break;
-		case MOVES.lick : return "Lick"; break;
-		case MOVES.nightmare : return "Nightmare";break;
-		case MOVES.psyCutter : return "Psy Cutter"; break;
-		case MOVES.quickAttack : return "Quick Attack"; break;
-		case MOVES.rockThrow : return "Rock Throw"; break;
-		case MOVES.rollout : return "Rollout"; break;
-		case MOVES.sandAttack : return "Sand Attack"; break;
-		case MOVES.scratch : return "Scratch"; break;
-		case MOVES.sing : return "Sing"; break;
-		case MOVES.superFang : return "Super Fang"; break;
-		case MOVES.tackle : return "Tackle"; break;
-		case MOVES.dreamEater : return "Dream Eater"; break;
-		case MOVES.thunder : return "Thunder"; break;
-		case MOVES.thundershock : return "Thundershock"; break;
+		case MOVES.amnesia : return "Amnesia";
+		case MOVES.bubbles : return "Bubbles";
+		case MOVES.ember : return "Ember";
+		case MOVES.vineWhip : return "Vine Whip";
+		case MOVES.tailWhip : return "Tail Whip";
+		case MOVES.charm : return "Charm";
+		case MOVES.confusion : return "Confusion";
+		case MOVES.defenceCurl : return "Defence Curl";
+		case MOVES.leer : return "Leer";
+		case MOVES.growl : return "Growl";
+		case MOVES.hypnosis : return "Hypnosis";
+		case MOVES.lick : return "Lick";
+		case MOVES.nightmare : return "Nightmare";
+		case MOVES.psyCutter : return "Psy Cutter";
+		case MOVES.quickAttack : return "Quick Attack";
+		case MOVES.rockThrow : return "Rock Throw";
+		case MOVES.rollout : return "Rollout";
+		case MOVES.sandAttack : return "Sand Attack";
+		case MOVES.scratch : return "Scratch";
+		case MOVES.sing : return "Sing";
+		case MOVES.superFang : return "Super Fang";
+		case MOVES.tackle : return "Tackle";
+		case MOVES.dreamEater : return "Dream Eater";
+		case MOVES.thunder : return "Thunder";
+		case MOVES.thundershock : return "Thundershock";
 	}	
 	
 }
@@ -276,30 +271,31 @@ function moveEnumToElement(_enum) {
 
 function moveEnumToDamageParadigm(_enum) {
 	switch(_enum) {
-		case MOVES.superFang : return DAMAGEPARADIGMS.percentage; break;
+		case MOVES.superFang : return DAMAGEPARADIGMS.percentageOfHP; break;
 		case MOVES.thunder : return DAMAGEPARADIGMS.riddles; break;
-		case MOVES.nightmare : return DAMAGEPARADIGMS.percentage; break;
+		case MOVES.nightmare : return DAMAGEPARADIGMS.percentageOfMaxHP; break;
 		default : return DAMAGEPARADIGMS.normal
 	}
 }
 
 function MoveEnumToEffect(_enum) {
 	switch(_enum) {
-		case MOVES.charm : return method(undefined, charmEffect); break;
-		case MOVES.confusion : return method(undefined, confusionEffect); break;
-		case MOVES.defenceCurl : return method(undefined, defenceCurlEffect); break;
-		case MOVES.dreamEater : return method(undefined, dreamEaterEffect); break;
-		case MOVES.growl : return method(undefined, growlEffect); break;
-		case MOVES.hypnosis : return method(undefined, hypnosisEffect); break;
-		case MOVES.leer : return method(undefined, leerEffect); break;
-		case MOVES.lick : return method(undefined, lickEffect); break;
-		case MOVES.nightmare : return method(undefined, nightmaredEffect); break;
-		case MOVES.quickAttack : return method(undefined, quickAttackEffect); break;
-		case MOVES.rollout : return method(undefined, rolloutEffect); break;
-		case MOVES.sandAttack : return method(undefined, sandAttackEffect); break;
-		case MOVES.sing : return method(undefined, singEffect); break;
-		case MOVES.tailWhip : return method(undefined, tailWhipEffect); break;
-		default : return method(undefined, moveDamageEffect); break;
+		case MOVES.amnesia : return method(undefined, amnesiaEffect);
+		case MOVES.charm : return method(undefined, charmEffect);
+		case MOVES.confusion : return method(undefined, confusionEffect);
+		case MOVES.defenceCurl : return method(undefined, defenceCurlEffect);
+		case MOVES.dreamEater : return method(undefined, dreamEaterEffect);
+		case MOVES.growl : return method(undefined, growlEffect);
+		case MOVES.hypnosis : return method(undefined, hypnosisEffect);
+		case MOVES.leer : return method(undefined, leerEffect);
+		case MOVES.lick : return method(undefined, lickEffect);
+		case MOVES.nightmare : return method(undefined, nightmaredEffect);
+		case MOVES.quickAttack : return method(undefined, quickAttackEffect);
+		case MOVES.rollout : return method(undefined, rolloutEffect);
+		case MOVES.sandAttack : return method(undefined, sandAttackEffect);
+		case MOVES.sing : return method(undefined, singEffect);
+		case MOVES.tailWhip : return method(undefined, tailWhipEffect);
+		default : return method(undefined, moveDamageEffect);
 	}
 }
 function moveEnumToPerformStart(_enum) {
@@ -319,15 +315,15 @@ function moveEnumToMissEffect(_enum) {
 
 function moveEnumToMaxPP(_enum) {
 	switch(_enum) {
-		case MOVES.amnesia : return 2; break;
-		case MOVES.charm : return 2; break;
-		case MOVES.growl : return 5; break;
-		case MOVES.hypnosis : return 3; break;
-		case MOVES.leer : return 5; break;
-		case MOVES.sandAttack : return 5; break;
-		case MOVES.sing : return 2; break;
-		case MOVES.superFang : return 2; break;
-		case MOVES.tailWhip : return 5; break;
+		case MOVES.amnesia : return 2;
+		case MOVES.charm : return 2;
+		case MOVES.growl : return 5;
+		case MOVES.hypnosis : return 3;
+		case MOVES.leer : return 5;
+		case MOVES.sandAttack : return 5;
+		case MOVES.sing : return 2;
+		case MOVES.superFang : return 2;
+		case MOVES.tailWhip : return 5;
 		default : return 0;
 	}
 }

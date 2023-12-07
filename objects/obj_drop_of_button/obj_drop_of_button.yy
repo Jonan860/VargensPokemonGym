@@ -11,10 +11,7 @@
     "name": "daycare_buttons",
     "path": "folders/Objects/button/daycare_buttons.yy",
   },
-  "parentObjectId": {
-    "name": "obj_daycare_buttons",
-    "path": "objects/obj_daycare_buttons/obj_daycare_buttons.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

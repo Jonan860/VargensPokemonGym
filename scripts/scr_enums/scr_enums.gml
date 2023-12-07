@@ -112,7 +112,8 @@ enum TURNS {
 
 enum DAMAGEPARADIGMS {
 	normal,
-	percentage,
+	percentageOfMaxHP,
+	percentageOfHP,
 	fixed,
 	riddles,
 	elementless

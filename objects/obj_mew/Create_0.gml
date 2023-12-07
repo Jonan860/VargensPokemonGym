@@ -17,16 +17,9 @@ ds_list_add(movesList, amnesia, psyCutter)
 
 sound = sound_snorlax
 scr_ai = function() {
-	global.move = amnesia.pp > 0 ? global.move = amnesia : psyCutter
+	global.move = amnesia.pp > 0 ? amnesia : psyCutter
 }
 
 
-/*
-load = function(saveDataTrainer){
-loadPokemon(saveDataTrainer._mew)
-}
 
-save = function(saveDataTrainer){
-savePokemon(saveDataTrainer._mew)
-}
 
