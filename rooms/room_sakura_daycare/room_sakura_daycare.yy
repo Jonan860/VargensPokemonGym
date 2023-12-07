@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "room_sakura_daycare",
-  "creationCodeFile": "",
+  "creationCodeFile": "rooms/room_sakura_daycare/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,

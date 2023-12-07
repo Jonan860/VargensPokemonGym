@@ -1,2 +1,1 @@
-
-struct=noone
+struct = noone

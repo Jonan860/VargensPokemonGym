@@ -1,127 +1,171 @@
 
- function scrStatusAilment(sound_=sound_growl,animator_=noone,text_
- ,scrStart_=scrStatusAilmentStandardStart,scrEffect_=ailmentStandardEffect 
- ,scrEnd_=ailmentStandardEnd, apply_ = applySimplest, willAnimate_ = function() {return 0}
- , scrReset_ =  simplestReset) constructor  {
-applied = 0
-symptomatic = 0
-turnsLeft=0
-animator=animator_
-sound = sound_
-text=text_
-scrStart = method(undefined,scrStart_)
-scrEnd = method(undefined,scrEnd_)
-scrEffect=method(undefined,scrEffect_)
-apply = method(undefined, apply_)
-scrReset = method(undefined, scrReset_)
-willAnimate = method(undefined, willAnimate_)
-owner=other.id
-load = function(struct){
-applied = struct._applied
-symptomatic = struct._symptomatic
-turnsLeft = struct._turnsLeft
+ function statusAilment(_enum) constructor  {
+	applied = 0
+	symptomatic = 0
+	turnsLeft = 0
+	animator = ailmentEnumToAnimator(_enum)
+	sound = ailmentEnumToSound(_enum)
+	text = ailmentEnumToText(_enum)
+	scrStart = method(undefined, scrStatusAilmentStandardStart)
+	scrEnd = method(undefined, ailmentStandardEnd)
+	scrEffect = ailmentEnumToEffect(_enum)
+	apply = ailmentEnumToApply(_enum)
+	scrReset = method(undefined, simplestReset)
+	willAnimate = ailmentEnumToWillAnimate(_enum)
+	owner = other.id
+	load = function(struct) {
+		applied = struct._applied
+		symptomatic = struct._symptomatic
+		turnsLeft = struct._turnsLeft
+	}
+
+	save = function() {
+		return {
+			_applied : applied,
+			_symptomatic : symptomatic,
+			_turnsLeft : turnsLeft
+		}
+	}
+
 }
 
-save = function(){
-return {
-	_applied : applied,
-	_symptomatic : symptomatic,
-	_turnsLeft : turnsLeft
+function ailmentEnumToWillAnimate(_enum) {
+	switch(_enum) {
+		case AILMENTS.asleep : return method(undefined, asleepWillAnimate)
+		case AILMENTS.paralyzed : return method(undefined, paralyzedWillAnimate)
+		case AILMENTS.confused : return method(undefined, confusedWillAnimate)
+		case AILMENTS.nightmared : return method(undefined, asleepWillAnimate)
+		default : return function() { return false}
 	}
 }
 
-}
-
-function constructAsleep(){return new scrStatusAilment(sound_sleep,sleep_animator,"slp",,asleepEffect, ailmentStandardEnd, applySleep, asleepWillAnimate)}
-function constructBurned(){return new scrStatusAilment(,,"brn",,,,applySimplest)}
-function constructPoisoned(){return new scrStatusAilment(,,"psn",,,,applySimplest)}
-function constructParalyzed(){return new scrStatusAilment(sound_paralyzed,paralyzed_animator,"par",,,,,paralyzedWillAnimate)}
-function constructLeeched(){return new scrStatusAilment(,,"lch",,,,)}
-function constructNightmared(){return new scrStatusAilment(sound_nightmare,nightmared_animator,"ngt",,nightmaredEffect,,,asleepWillAnimate)}
-function constructConfused(){return new scrStatusAilment(sound_confused, obj_confused_animator,"cnf",,scrConfusedEffect,,applyConfused, confusedWillAnimate, )}
-function constructFrozen(){
-	var frozen = new scrStatusAilment(,,"frz",,,,)
-	variable_struct_set(frozen,"unfreeze",0)
-	return frozen
+function ailmentEnumToApply(_enum) {
+	switch(_enum) {
+		case  AILMENTS.asleep : return method(undefined, applySleep)
+		case AILMENTS.confused : return method(undefined, applyConfused)
+		default : return method(undefined, applySimplest)
 	}
-
-function scrStatusAilmentStandardStart(){
-if(willAnimate()){
-audio_pause_sound(global.background_music)
-audio_play_sound(sound,0,0)
-var varanimator = instance_create_depth(owner.x,owner.y,-1,animator)
-with(varanimator){struct = other}
 }
-turnsLeft=max(turnsLeft-1,0)
+
+function ailmentEnumToEffect(_enum) {
+	switch(_enum) {
+		case  AILMENTS.asleep : return method(undefined, asleepEffect)
+		case AILMENTS.paralyzed : return method(undefined, ailmentStandardEffect)
+		case AILMENTS.confused : return method(undefined, scrConfusedEffect)
+		case AILMENTS.nightmared : return method(undefined, nightmaredEffect)
+		default : return method(undefined, ailmentStandardEffect)
+	}
+}
+
+function ailmentEnumToAnimator(_enum) {
+	switch(_enum) {
+		case  AILMENTS.asleep : return sleep_animator
+		case AILMENTS.paralyzed : return paralyzed_animator
+		case AILMENTS.confused : return obj_confused_animator
+		case AILMENTS.nightmared : return nightmared_animator
+		default : return noone
+	}
+}
+
+function ailmentEnumToSound(_enum) {
+	switch(_enum) {
+		case  AILMENTS.asleep : return sound_sleep
+		case AILMENTS.paralyzed : return sound_paralyzed
+		case AILMENTS.confused : return sound_confused
+		case AILMENTS.nightmared : return sound_nightmare
+		default : return sound_growl
+	}
+}
+
+function ailmentEnumToText(_enum) {
+	switch(_enum) {
+		case  AILMENTS.asleep : return "slp"
+		case AILMENTS.burned : return "brn"
+		case AILMENTS.poisoned : return "psn"
+		case AILMENTS.paralyzed : return "par"
+		case AILMENTS.leeched : return "lch"
+		case AILMENTS.confused : return "cnf"
+		case AILMENTS.nightmared : return "ngt"
+		case AILMENTS.frozen : return "frz"
+	}
+}
+
+
+function scrStatusAilmentStandardStart() {
+	if(willAnimate()) {
+	audio_pause_sound(global.background_music)
+	audio_play_sound(sound, 0, 0)
+	var varanimator = instance_create_depth(owner.x, owner.y, -1, animator)
+	with(varanimator){struct = other}
+	}
+	turnsLeft = max(turnsLeft - 1, 0)
 }
 
 function scrConfusedEffect() {
-	if(symptomatic){
-	with(owner){
-	var varselfhit = new scrMove(obj_hit_animation,sound_hit,
-	,STANDARD_MOVEDAMAGE,,,,,,, 1, DAMAGEPARADIGMS.elementless,, )
+	if(symptomatic) {
+		with(owner) {
+			var varselfhit = new scrMove(obj_hit_animation,sound_hit,
+			,STANDARD_MOVEDAMAGE,,,,,,, 1, DAMAGEPARADIGMS.elementless,, )
 		}
-		with(varselfhit){
-			owner.HP-=damage_calculate(owner)
-			}
+		with(varselfhit) {
+			owner.HP -= damage_calculate(owner)
+		}
 	}
 	
 }
 
 
-function nightmaredEffect(){with(owner){HP-=max_HP/8}}
+function nightmaredEffect(){with(owner){HP -= max_HP/8}}
 
-/*function scrAsleepStart(){
-	if(willAnimate()){
-	var varsound=sound_awakening*awakening+sound_sleep*!awakening
-	audio_pause_sound(global.background_music)
-	audio_play_sound(varsound,0,0)
-	var varanimator = instance_create_depth(owner.x,owner.y,1,animator)
-	with(varanimator){struct=other.id}
-	}
-	if(awakening){owner.nightmared.applied=0}
-	turnsLeft=max(turnsLeft-1,0)
-}*/
-
-function scrFrozenStart(){
-	if(choose(0,0,1)){unfreeze=0}
-	scrStatusAilmentStandardStart()}
+function scrFrozenStart() {
+	if(choose(0, 0, 1)){unfreeze = 0}
+	scrStatusAilmentStandardStart()
+}
 
     
 function scrConfusionImplementable(){with(owner) return  !(asleep.applied or frozen.applied or paralyzed.symptomatic)}
 function paralyzedWillAnimate(){with(owner) return paralyzed.symptomatic and !(asleep.applied or frozen.applied) }
 	
-	function ailmentStandardEnd(){
-audio_resume_sound(global.background_music)
-scrEffect()
-with(owner) {if(HP>0) scr_perform_status_ailment()}
+	function ailmentStandardEnd() {
+	audio_resume_sound(global.background_music)
+	scrEffect()
+	with(owner) {
+		if(HP > 0) scr_perform_status_ailment()
+	}
 }
 
 function ailmentStandardEffect(){}
-function asleepEffect(){applied = turnsLeft != 0
+function asleepEffect() {
+	applied = turnsLeft != 0
 	if(!applied) owner.nightmared.applied = 0
-	}
+}
 function applyConfused() {
-	applied=1
-	turnsLeft=choose(3,4,4,5)
+	applied = 1
+	turnsLeft = choose(3, 4, 4, 5)
 }
 
-function applySleep(){
-applied=1
-turnsLeft=choose(3,4,4,5)
+function applySleep() {
+	applied = 1 
+	turnsLeft = choose(3, 4, 4, 5)
 }
 
-function applySimplest(){applied = 1}
-function willAnimateSimplest(){return applied }
-function confusedWillAnimate(){
-	with(owner){ 
-	return !(asleep.applied  or frozen.applied or paralyzed.symptomatic) } }
-function asleepWillAnimate(){with(owner){ return !frozen.applied}}
-
-
-
-function simplestReset(){
-applied = 0;
-symptomatic = 0;
-turnsLeft = 0;
+function applySimplest() {applied = 1}
+function willAnimateSimplest() {return applied }
+function confusedWillAnimate() {
+	with(owner) { 
+		return !(asleep.applied  or frozen.applied or paralyzed.symptomatic) 
+	} 
 }
+function asleepWillAnimate() {
+	with(owner){ return !frozen.applied}
+}
+
+
+
+function simplestReset() {
+	applied = 0;
+	symptomatic = 0;
+	turnsLeft = 0;
+}
+
+

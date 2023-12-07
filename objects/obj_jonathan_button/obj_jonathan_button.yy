@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "obj_jonathan_button",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -11,7 +11,10 @@
     "name": "difficulty",
     "path": "folders/Objects/button/difficulty.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_player_button",
+    "path": "objects/obj_player_button/obj_player_button.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

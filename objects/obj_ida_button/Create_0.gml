@@ -1,0 +1,1 @@
+player = PLAYERS.Ida

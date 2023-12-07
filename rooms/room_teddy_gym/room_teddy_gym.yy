@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "room_teddy_gym",
-  "creationCodeFile": "${project_dir}/rooms/room_teddy_gym/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/room_teddy_gym/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,

@@ -1,2 +1,2 @@
-	HP=1;
-	alive=1;
+HP = 1;
+alive = 1;

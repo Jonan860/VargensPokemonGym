@@ -1,2 +1,2 @@
-object=instance_find(obj_mewtwo,0)
+object = global.mewtwo
 

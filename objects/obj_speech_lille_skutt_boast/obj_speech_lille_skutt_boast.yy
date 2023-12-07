@@ -11,10 +11,7 @@
     "name": "speech_bubbles",
     "path": "folders/Sprites/speech_bubbles.yy",
   },
-  "parentObjectId": {
-    "name": "obj_lille_skutt",
-    "path": "objects/obj_lille_skutt/obj_lille_skutt.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

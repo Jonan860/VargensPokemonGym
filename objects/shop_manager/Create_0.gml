@@ -1,16 +1,14 @@
-/// @description Insert description here
-// You can write your code in this editor
 global.shopManager = id
 
-sellStruct=noone
-buyStruct=noone
-cantBuyName=noone
+sellStruct = noone
+buyStruct = noone
+cantBuyName = noone
 
 
-clearStructs = function(){
-sellStruct=noone
-buyStruct=noone
-cantBuyName=noone
+clearStructs = function() {
+	sellStruct = noone
+	buyStruct = noone
+	cantBuyName = noone
 }
 
 

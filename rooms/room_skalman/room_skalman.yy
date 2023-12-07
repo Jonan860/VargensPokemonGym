@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "room_skalman",
-  "creationCodeFile": "${project_dir}/rooms/room_skalman/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/room_skalman/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,

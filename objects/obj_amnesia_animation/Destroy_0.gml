@@ -1,3 +1,3 @@
-if(number = 4){ struct.scrEnd()}
+if(number == 4){ struct.scrEnd()}
 
 

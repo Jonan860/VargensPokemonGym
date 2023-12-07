@@ -1,2 +1,2 @@
-global.turn=TURNS.enemy
+global.turn = TURNS.enemy
 

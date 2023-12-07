@@ -1,7 +1,7 @@
 
 event_inherited()
-name="Super potion"
+name = "Super potion"
 
-if(room=room_inventory and global.amber.superPotion.count=0){instance_destroy()}
+if(room == room_inventory and global.amber.superPotion.count == 0) {instance_destroy()}
 
-struct=global.amber.superPotion
+struct = global.amber.superPotion

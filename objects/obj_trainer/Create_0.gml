@@ -1,2 +1,1 @@
-
-pokemonList=ds_list_create()
+pokemonList = ds_list_create()

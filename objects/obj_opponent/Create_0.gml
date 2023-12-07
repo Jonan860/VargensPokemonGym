@@ -1,4 +1,4 @@
 event_inherited()
-owner=0
-alive=1
+owner = 0
+alive = 1
 

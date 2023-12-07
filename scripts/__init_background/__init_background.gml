@@ -17,8 +17,4 @@ function __init_background() {
 		Blend,
 		Alpha,
 	};
-
-
-
-
 }

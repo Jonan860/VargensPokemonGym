@@ -1,2 +1,2 @@
 
-draw_name=0
+draw_name = 0

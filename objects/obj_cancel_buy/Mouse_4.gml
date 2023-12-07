@@ -1,5 +1,5 @@
 
-if(visible){
-global.phase=PHASES.reinardShop
-global.shopManager.updateShopButtons()
+if(visible) {
+	global.phase = PHASES.reinardShop
+	global.shopManager.updateShopButtons()
 }

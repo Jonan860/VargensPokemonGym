@@ -1,4 +1,4 @@
-enemyImageTransform = method(undefined,doNothing)
+enemyImageTransform = method(undefined, doNothing)
 event_inherited()
 
 

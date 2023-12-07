@@ -1,2 +1,1 @@
-if(room==room_skalman){image_index=spr_skalman_chillar}
-else image_index=spr_skalman
+image_index = room == room_skalman ? spr_skalman_chillar : spr_skalman

@@ -1,2 +1,2 @@
-object=noone
+object = noone
 

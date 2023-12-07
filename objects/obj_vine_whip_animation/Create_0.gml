@@ -1,6 +1,6 @@
 event_inherited()
-Xtranslation=150
-Ytranslation=150
+Xtranslation = 150
+Ytranslation = 150
 
 
 

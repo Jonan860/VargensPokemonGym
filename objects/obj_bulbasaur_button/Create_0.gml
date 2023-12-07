@@ -1,2 +1,2 @@
-object=instance_find(obj_bulbasaur,0)
+object = global.bulbasaur
 

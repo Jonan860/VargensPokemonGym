@@ -1,3 +1,3 @@
-global.phase=PHASES.choosing
+global.phase = PHASES.choosing
 
 

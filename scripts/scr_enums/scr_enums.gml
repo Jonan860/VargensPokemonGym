@@ -1,6 +1,6 @@
 
 
-enum PHASES{
+enum PHASES {
 	attack,
 	attackHit,
 	attackMiss,
@@ -38,80 +38,99 @@ enum SHOPPHASES{
 
 }
 
-enum MOVES{
-psyCutter,
-ember,
-bubbles,
-vineWhip,
-rockThrow,
-thunder,
-thundershock,
-leer,
-growl,
-charm,
-tailWhip,
-confusion,
-hypnosis,
-dreamEater,
-sandAttack,
-scratch,
-defenceCurl,
-rollout,
-sing,
-nightmare,
-tackle,
-quickAttack,
-lick,
-superFang
+enum MOVES {
+	amnesia,
+	psyCutter,
+	ember,
+	bubbles,
+	vineWhip,
+	rockThrow,
+	thunder,
+	thundershock,
+	leer,
+	growl,
+	charm,
+	tailWhip,
+	confusion,
+	hypnosis,
+	dreamEater,
+	rest,
+	sandAttack,
+	scratch,
+	defenceCurl,
+	rollout,
+	sing,
+	nightmare,
+	tackle,
+	quickAttack,
+	lick,
+	superFang
 }
 
-enum ELEMENTALTYPES{
-water,
-fire,
-grass,
-ghost,
-normal,
-psychic,
-rock,
-electric,
-ground,
-ice,
-fighting,
-bug,
-poison,
-flying,
-steel,
-fairy
+enum ELEMENTALTYPES {
+	water,
+	fire,
+	grass,
+	ghost,
+	normal,
+	psychic,
+	rock,
+	electric,
+	ground,
+	ice,
+	fighting,
+	bug,
+	poison,
+	flying,
+	steel,
+	fairy
 }
 
-enum POKEMONS{
-Pikachu,
-Squirtle,
-Geodude,
-Charmander,
-Bulbasaur,
-Mew,
-Mewtwo,
-Sandshrew,
-Rattata,
-Drowzee,
-Marill,
-Espeon,
-Pichu,
-Raticate,
-Haunter,
-Meowth
+enum POKEMONS {
+	Pikachu,
+	Squirtle,
+	Geodude,
+	Charmander,
+	Bulbasaur,
+	Mew,
+	Mewtwo,
+	Sandshrew,
+	Rattata,
+	Drowzee,
+	Marill,
+	Espeon,
+	Pichu,
+	Raticate,
+	Haunter,
+	Meowth
 }
 
-enum TURNS{
-enemy,
-Amber
+enum TURNS {
+	enemy,
+	Amber
 }
 
-enum DAMAGEPARADIGMS{
-normal,
-percentage,
-fixed,
-riddles,
-elementless
+enum DAMAGEPARADIGMS {
+	normal,
+	percentage,
+	fixed,
+	riddles,
+	elementless
+}
+
+enum PLAYERS {
+	Nils,
+	Ida,
+	Jonathan
+}
+
+enum AILMENTS {
+	asleep,
+	poisoned,
+	paralyzed,
+	burned,
+	frozen,
+	nightmared,
+	leeched,
+	confused
 }

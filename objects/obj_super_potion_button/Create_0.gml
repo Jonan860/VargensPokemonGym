@@ -1,0 +1,1 @@
+struct = global.amber.superPotion
