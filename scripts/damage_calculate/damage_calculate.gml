@@ -7,8 +7,14 @@ function damage_calculate(victim) {
 	var damageWithBonus = get_damage(damage, owner.damage, attackBonus)
 	var damageWithoutBonus = get_damage(damage, owner.damage, 0)
 	switch(damageParadigm) {
-		case DAMAGEPARADIGMS.normal : if(critChance <= random(100)) return ceil(damageWithBonus * defenceWithBonus * typeBonus)
-		else{return ceil(2 * max(damageWithBonus * defenceWithBonus * typeBonus, damageWithoutBonus * defenceWithoutBonus * typeBonus))}; break;
+		case DAMAGEPARADIGMS.normal : 
+			if(critChance <= random(100)) {
+				return ceil(damageWithBonus * defenceWithBonus * typeBonus)
+			}
+			else{
+				instance_create_depth(room_width / 2, room_height / 2, -100, obj_critical_hit)
+				return ceil(2 * max(damageWithBonus * defenceWithBonus * typeBonus, damageWithoutBonus * defenceWithoutBonus * typeBonus))
+				}; break;
 		case DAMAGEPARADIGMS.percentageOfMaxHP : return ceil(victim.max_HP * damage / 100); break;
 		case DAMAGEPARADIGMS.percentageOfHP : return ceil(victim.HP * damage / 100); break;
 		case DAMAGEPARADIGMS.fixed : return ceil(damage); break;

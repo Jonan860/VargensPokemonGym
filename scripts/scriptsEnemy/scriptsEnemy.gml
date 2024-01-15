@@ -3,7 +3,7 @@ function scrEnemyWorld() {
 	if(!defeated and room == roomWorld) {
 		var x_distance = abs(x - global.amber.x)
 		if(isAmberApproachable()) {
-			with(obj_amber){moveable = 0}
+			with(global.amber){moveable = 0}
 	
 			if(camping) {
 				move_towards_point(global.amber.x, global.amber.y, x_distance / 60)
@@ -14,18 +14,18 @@ function scrEnemyWorld() {
 
 	if(speed > 0 and y != global.amber.y) {
 		speed = 0
-		with(obj_amber){moveable = 1}
+		with(global.amber){moveable = 1}
 		camping = 1
 	}
 }
 
 function scrEnemyChoosing(){
-	if(!active_pokemon.active and x > -sprite_width){
+	if(!active_pokemon.active and x > -sprite_width) {
 		global.enemy.active_pokemon = noone
 		for(var i = 0; i < ds_list_size(pokemonList); i++) {
 			var pokemon = pokemonList[|i];
 			if(pokemon.alive) {
-				global.enemy.active_pokemon=pokemon;
+				global.enemy.active_pokemon = pokemon;
 				break;
 			}
 		}
@@ -84,19 +84,19 @@ function scrEnemyDefeated() {
 
 
 
-function scrEnemySwitchPokemon(){
+function scrEnemySwitchPokemon() {
 	if(x < -sprite_width) {
 		path_end()
 		global.phase = PHASES.pokeball
 		pokeball = instance_create_depth(x, y, 0, obj_poke_ball)
-		pokeball.owner=id
+		pokeball.owner = id
 		x = opponent_x
 		visible = 0
 	}
 }
 
-function scrEnemyMatch(){
-	switch(global.turn){
+function scrEnemyMatch() {
+	switch(global.turn) {
 	case TURNS.enemy:
 	if(active_pokemon != noone) scrDeath()
 	switch(global.phase) {

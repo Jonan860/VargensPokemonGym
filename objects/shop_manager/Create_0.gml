@@ -14,13 +14,13 @@ clearStructs = function() {
 
 
 updateShopButtons = function(){
-	 with(obj_shop_button){visible=0}
+	 with(obj_shop_button){visible = 0}
 
 switch(global.phase){
 case PHASES.reinardShop: {
-	with(obj_sell_button){visible=1}
-	with(obj_back_button){visible=1}
-	with(obj_buy_button){visible=1}
+	with(obj_sell_button){visible = 1}
+	with(obj_back_button){visible = 1}
+	with(obj_buy_button){visible = 1} 
 }; break;
 
 case PHASES.buy: 

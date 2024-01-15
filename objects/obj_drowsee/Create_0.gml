@@ -21,9 +21,10 @@ scr_ai = function() {
 	var lessHalf = HP < max_HP/2
 	var maxedHP = HP == max_HP
 	var sleeped = target.asleep.applied
+	var awakeMove = hypnosis.pp == 0 ? confusion : (lessHalf ? hypnosis : confusion)
 	global.move = sleeped ?
 		(maxedHP ?  confusion : dreamEater)
-		: (lessHalf ? hypnosis : confusion)
+		: awakeMove
 }
 
 

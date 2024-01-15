@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "enemy pokemon",
-    "path": "folders/Objects/unit/enemy pokemon.yy",
+    "name": "Jansson pokemon",
+    "path": "folders/Objects/unit/enemy pokemon/Jansson pokemon.yy",
   },
   "parentObjectId": {
     "name": "obj_opponent",

@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_husmusen",
-    "path": "sprites/spr_husmusen/spr_husmusen.yy",
+    "name": "spr_husmusen_world",
+    "path": "sprites/spr_husmusen_world/spr_husmusen_world.yy",
   },
   "spriteMaskId": null,
   "visible": true,

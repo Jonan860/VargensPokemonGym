@@ -3,7 +3,7 @@ if(global.phase == PHASES.trainerMoving and global.turn == TURNS.Amber) {
 		global.phase = PHASES.pokeball
 		active = 0
 
-		with(obj_starters_button){instance_destroy()}
+		with(obj_pokemon_button){instance_destroy()}
 
 		instance_create_depth(x, y, 0, obj_poke_ball)
 	} else move_towards_point(x + 100, y, 10)

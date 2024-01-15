@@ -17,13 +17,13 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 302,
+  "height": 95,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"30deefb9-0495-4e62-a017-fb8d28dfcfd5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 3,
   "parent": {
     "name": "attack",
     "path": "folders/Sprites/attack.yy",
@@ -59,8 +59,8 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 95,
-    "yorigin": 151,
+    "xorigin": 0,
+    "yorigin": 47,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 190,
+  "width": 249,
 }

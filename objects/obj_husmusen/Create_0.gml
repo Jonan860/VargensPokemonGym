@@ -1,12 +1,14 @@
 event_inherited()
 global.Husmusen = id
 roomMatch = room_husmusen
-roomWorld = jansson_husmus_gym
+roomWorld = room_jansson_husmus_gym
 camping = 1
 wait = 1
 defeated = 0
 path = 0
 name = "Husmusen"
+world_sprite = spr_husmusen_world
+battle_sprite = spr_husmusen_original
 
 world_x = x; world_y = y;
 rattata = instance_create_depth(opponent_x, opponent_y, 0, obj_rattata)
@@ -35,8 +37,7 @@ scrMatch = method(undefined, scrEnemyMatch)
 
 sprDefeatBubble = spr_husmusen_defeat_bubble
 sprVictoryBubble = spr_husmusen_victory_bubble
-sprWorld = spr_husmusen
-sprMatch = spr_husmusen
+
 
 isAmberApproachable = function() {
 	var y_distance = abs(y - global.amber.y)
@@ -46,7 +47,7 @@ isAmberApproachable = function() {
 		var husmus_distance = distance_to_object(global.Husmusen)
 	}
 	
-	return y_distance < 40 and jansson_distance > husmus_distance or instance_find(obj_jansson, 0).defeated
+	return y_distance < 40 and jansson_distance > husmus_distance or global.Jansson.defeated
 }
 
 getOpponent = function() {return global.amber}

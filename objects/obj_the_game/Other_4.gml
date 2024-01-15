@@ -1,9 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
 
 with(obj_enemy_trainer){roomStartSetup()}
 
-if(scrContains(room, jansson_husmus_gym, room_teddy_gym)) {
+if(scrContains(room, room_jansson_husmus_gym, room_teddy_gym)) {
 	if(global.amber.defeated){
 		defeatWorldSetup()
 	}
@@ -13,7 +11,7 @@ if(scrContains(room, jansson_husmus_gym, room_teddy_gym)) {
 
 function defeatWorldSetup() {
 	scrDefeatLoad()
-	if(room = jansson_husmus_gym ){
+	if(room == room_jansson_husmus_gym ) {
 		with(global.Jansson){winWorldSetup()}
 		with(global.Husmusen){winWorldSetup()}
 	}

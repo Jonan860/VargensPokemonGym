@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_teddy",
-    "path": "sprites/spr_teddy/spr_teddy.yy",
+    "name": "spr_teddy_original",
+    "path": "sprites/spr_teddy_original/spr_teddy_original.yy",
   },
   "spriteMaskId": null,
   "visible": true,

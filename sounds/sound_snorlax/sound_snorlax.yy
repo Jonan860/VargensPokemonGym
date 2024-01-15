@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 3,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 1.933312,
   "parent": {
     "name": "pokemon",
     "path": "folders/Sounds/pokemon.yy",

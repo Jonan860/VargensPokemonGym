@@ -1,4 +1,4 @@
 
-if(global.phase == PHASES.sell or global.phase == PHASES.buy or global.phase == PHASES.reinardShop) {
+if(scrContains(global.phase, PHASES.sell, PHASES.buy, PHASES.reinardShop)) {
 	updateShopButtons()
 }

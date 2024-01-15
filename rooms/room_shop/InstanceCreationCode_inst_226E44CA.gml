@@ -1,1 +1,1 @@
-visible = global.phase == PHASES.buy or global.phase == PHASES.sell
+visible = scrContains(global.phase, PHASES.buy, PHASES.sell)

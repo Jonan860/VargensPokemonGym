@@ -3,11 +3,13 @@ event_inherited()
 world_x = x; world_y = y
 roomWorld = room_teddy_gym
 roomMatch = room_teddy_match
+world_sprite = spr_teddy_bed
+battle_sprite = spr_teddy_battle
 if(instance_number(obj_teddy) == 1) global.teddy = id
 camping = 1
-jigglypuff = instance_create_depth(x, y, 0, obj_jigglypuff)
-drowsee = instance_create_depth(x, y, 0, obj_drowsee)
-gastly=  instance_create_depth(x, y, 0, obj_gastly)
+jigglypuff = instance_create_depth(opponent_x, opponent_y, 0, obj_jigglypuff)
+drowsee = instance_create_depth(opponent_x, opponent_y, 0, obj_drowsee)
+gastly = instance_create_depth(opponent_x, opponent_y, 0, obj_gastly)
 
 ds_list_add(pokemonList, jigglypuff, drowsee, gastly)
 for(var i = 0; i < ds_list_size(pokemonList); i++) {
@@ -35,8 +37,7 @@ scrMatch = method(undefined, scrEnemyMatch)
 isAmberApproachable = function(){return y == global.amber.y}
 sprDefeatBubble = spr_teddy_defeat_bubble
 sprVictoryBubble = spr_teddy_victory_bubble
-sprWorld = spr_teddy
-sprMatch = spr_teddy_bed
+
 getOpponent = function() {return global.amber}
 
 saveCondition = function() {return true}

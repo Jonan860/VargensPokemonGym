@@ -3,18 +3,22 @@ event_inherited()
 name = "Amber"
 depth = -10
 moveable = 1
+image_speed = 0
+movementTimer = 0
+battle_sprite = spr_amber_original
+world_sprite = spr_amber_world
+stepTime = 10
 active_pokemon = noone
-charmander = instance_create_depth(x, y, 0, obj_charmander)
-squirtle = instance_create_depth(x, y, 0, obj_squirtle)
-geodude = instance_create_depth(x, y, 0, obj_geodude)
-mewtwo = instance_create_depth(x, y, 0, obj_mewtwo)
-bulbasaur = instance_create_depth(x, y, 0, obj_bulbasaur)
-pikachu = instance_create_depth(x, y, 0, obj_pikachu)
+charmander = instance_create_depth(match_x, match_y, 0, obj_charmander)
+squirtle = instance_create_depth(match_x, match_y, 0, obj_squirtle)
+geodude = instance_create_depth(match_x, match_y, 0, obj_geodude)
+mewtwo = instance_create_depth(match_x, match_y, 0, obj_mewtwo)
+bulbasaur = instance_create_depth(match_x, match_y, 0, obj_bulbasaur)
+pikachu = instance_create_depth(match_x, match_y, 0, obj_pikachu)
 ds_list_add(pokemonList, geodude, mewtwo, bulbasaur, charmander, squirtle, pikachu)
 for(var i = 0; i < ds_list_size(pokemonList); i++) {
 	var pokemon = ds_list_find_value(pokemonList,i)
-	with(pokemon){
-		x = match_x; y = match_y;
+	with(pokemon) {
 		owner = other.id
 	}
 }
@@ -36,7 +40,7 @@ function item(effect_,_price,object_,_name, _button, _appliable) constructor {
 		count -= 1
 		with(global.amber.active_pokemon) {
 			other.effect()
-			action_bar=max_action_bar
+			action_bar = max_action_bar
 		}	
 	};
 	object = object_
@@ -86,7 +90,9 @@ scrDefeated = function() {
 daycareHeal = function() {
 	var varDaycareHeal = scr_get_daycare_heal()
 	for(var i = 0; i < ds_list_size(daycareList); i++) {	
-		daycareList[|i].daycareHeal(varDaycareHeal)
+		with(daycareList[|i]) {
+			daycareHeal(varDaycareHeal)
+		}
 	}
 }
 
@@ -102,7 +108,7 @@ scrDeath = function() {
 		active_pokemon.die()
 		global.turn = TURNS.Amber
 		global.phase = PHASES.choosing
-		active=1
+		active = 1
 
 		if(!isListAlive( pokemonCompanionList)){
 			loseSetup() 
@@ -121,26 +127,36 @@ loseSetup = function() {
 	global.phase = PHASES.defeated
 }
 
+winSetup = function() {
+	
+}
+
 scrEnterBuilding = method(undefined, scr_amber_enter_building)
 scrSwitchPokemon = method(undefined, scr_amber_switch_pokemon)
 scrPerformStatusAilment = method(undefined, scr_amber_perform_status_ailment)
-scrSetMovable= function(){if(room = jansson_husmus_gym and moveable = 0 and y > 700) moveable = 1}
+scrSetMovable = function(){if(room = room_jansson_husmus_gym and moveable = 0 and y > 700) moveable = 1}
 scrMovement = function() {
 	if(moveable) {
-		var x_translation = sprite_width * (keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left))
-		var y_translation = sprite_height / 2 * (keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up))
-		if (x_translation != 0 or y_translation != 0) {
-			var blocker = noone
-			with(obj_trainer) {
-				if(instance_position(x-x_translation,y - y_translation,other.id)){
-					var blocker = id
-					break;
+		if(movementTimer == 0) {
+			var x_translation = sprite_width * (keyboard_check(vk_right) - keyboard_check(vk_left))
+			var y_translation = sprite_height / 2 * (keyboard_check(vk_down) - keyboard_check(vk_up))
+			if (x_translation != 0 or y_translation != 0) {
+			
+				var blocker = noone
+				with(obj_trainer) {
+					if(instance_position(x - x_translation, y - y_translation, other.id)) {
+						var blocker = id
+						break;
+					}
 				}
-			}
-			if(blocker < 0 or !blocker.visible) {
-				x += x_translation; y += y_translation
+				if(blocker < 0 or !blocker.visible or blocker == global.amber) {
+					x += x_translation; y += y_translation
+					image_index += y_translation == 0 ? 0 : 1
+				}
+				movementTimer = stepTime
 			}
 		}
+		movementTimer = max(0, movementTimer - 1)
 	}
 }
 
@@ -148,7 +164,7 @@ getOpponent = function(){return global.enemy}
 
 
 save = function(saveStruct = global.saveData) {
-	if(global.phase == PHASES.world){
+	if(global.phase == PHASES.world) {
 		world_x = x; world_y = y
 	}
 	saveStruct.Amber = {
@@ -186,8 +202,8 @@ load = function(saveStruct = global.saveData) {
 	y = beforeBattle ? room_height - sprite_height : s._y
 	visible = s._visible;
 
-	world_x = beforeBattle ? x : s._world_x ;
-	world_y = beforeBattle ? y : s._world_y ;
+	world_x = beforeBattle ? world_x : s._world_x ;
+	world_y = beforeBattle ? world_y : s._world_y ;
 	money = s._money
 	defeated = s._defeated
 	moveable = beforeBattle ? 1 : s._moveable

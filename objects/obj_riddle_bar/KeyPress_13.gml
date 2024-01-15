@@ -2,8 +2,8 @@
 switch (global.player) {
 	case PLAYERS.Ida : 
 		if(keyboard_string != "" and string_digits(keyboard_string) == keyboard_string) {
-			keyboard_string = ""
 			number_correct_answer += real(n) + real(m) == real(string_digits(keyboard_string)) ? 1 : -1
+			keyboard_string = ""
 		}
 		n = choose("1","2","3","4","5","6","7","8","9","0")
 		m = choose("1","2","3","4","5","6","7","8","9","0")

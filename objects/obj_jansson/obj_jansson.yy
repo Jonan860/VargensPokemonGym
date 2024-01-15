@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_jansson",
-    "path": "sprites/spr_jansson/spr_jansson.yy",
+    "name": "spr_jansson_world",
+    "path": "sprites/spr_jansson_world/spr_jansson_world.yy",
   },
   "spriteMaskId": null,
   "visible": true,

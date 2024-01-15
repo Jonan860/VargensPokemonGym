@@ -57,7 +57,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a2f34522-8413-41c2-a36f-45b6c9eff2e1","path":"sprites/spr_teddy_bed/spr_teddy_bed.yy",},},},"Disabled":false,"id":"32a46ac7-5eca-418a-83d3-4f981410eb29","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 185,
     "yorigin": 130,

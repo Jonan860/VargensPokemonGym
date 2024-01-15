@@ -15,9 +15,8 @@ rollout_bonus = 1
 defenceCurl = new moveConstruct(MOVES.defenceCurl)
 rollout = new moveConstruct(MOVES.rollout)
 ds_list_add(movesList, defenceCurl, rollout)
-xstart = x; ystart = y;
 scr_ai = function() {
-	global.move = defenceCurl.pp > 0 and defence_bonus < 2 ? defenceCurl : rollout 
+	global.move = defenceCurl.pp > 0 and defence_bonus < 2 and rollout.bonus == 1 ? defenceCurl : rollout 
 }
 defenceCurlSprite = spr_marill_roll
 rolloutSprite = spr_marill_roll

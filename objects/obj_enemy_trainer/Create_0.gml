@@ -4,8 +4,8 @@ camping = noone
 defeated = noone
 moveable = noone
 
-sprWorld = spr_husmusen
-sprMatch = spr_husmusen
+sprWorld = spr_husmusen_original
+sprMatch = spr_husmusen_original
 
 scrDeath = function() {
 
@@ -31,6 +31,11 @@ loseSetup = function() {
 		for(var i = 0; i < ds_list_size(pokemonCompanionList); i++) {
 			with(pokemonCompanionList[|i]) { 
 				action_bar = max_action_bar
+				for(var j = 0; j < ds_list_size(movesList); j++) {
+					with(movesList[|j]) {
+						pp = ppMax > 1 ? ppMax : pp
+					}
+				}
 				resetBonuses()
 			}
 		}
@@ -50,11 +55,13 @@ winWorldSetup = function() {
 roomStartSetup = function() {
 	switch(room) {
 		case roomMatch : 
-		world_x = x; world_y = y
-		x = opponent_x; y = opponent_y;
-		global.enemy = id; break;
+			world_x = x; world_y = y
+			x = opponent_x; y = opponent_y;
+			sprite_index = battle_sprite
+			global.enemy = id; break;
 		case roomWorld : 
 			x = world_x; y = world_y;
+			sprite_index = world_sprite
 			visible = 1; break;
 		default : visible = 0
 	}
@@ -69,13 +76,19 @@ load = function(saveStruct = global.saveData) {
 	world_x = s._world_x; world_y = s._world_y;
 	wait = s._wait
 	camping = s._camping
-	defeated=s._defeated
+	defeated = s._defeated
 	moveable = s._moveable
 	visible = s._visible
 	speed = s._speed
 	direction = s._direction
+	active_pokemon = noone
 	for(var i = 0; i < ds_list_size(pokemonList); i++) {
-		with(pokemonList[|i]){load(saveStruct)}
+		with(pokemonList[|i]) {
+			load(saveStruct)
+			if(alive and owner.active_pokemon == noone) {
+				owner.active_pokemon = id
+			}
+		}
 	}
 }
 

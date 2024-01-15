@@ -12,8 +12,8 @@
     "path": "folders/Objects/button/pokemon button.yy",
   },
   "parentObjectId": {
-    "name": "obj_starters_button",
-    "path": "objects/obj_starters_button/obj_starters_button.yy",
+    "name": "obj_pokemon_button",
+    "path": "objects/obj_pokemon_button/obj_pokemon_button.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

@@ -41,8 +41,8 @@ function ailmentEnumToWillAnimate(_enum) {
 
 function ailmentEnumToApply(_enum) {
 	switch(_enum) {
-		case  AILMENTS.asleep : return method(undefined, applySleep)
-		case AILMENTS.confused : return method(undefined, applyConfused)
+		case  AILMENTS.asleep : return method(undefined, applySleep); break;
+		case AILMENTS.confused : return method(undefined, applyConfused); break;
 		default : return method(undefined, applySimplest)
 	}
 }
@@ -93,10 +93,10 @@ function ailmentEnumToText(_enum) {
 
 function scrStatusAilmentStandardStart() {
 	if(willAnimate()) {
-	audio_pause_sound(global.background_music)
-	audio_play_sound(sound, 0, 0)
-	var varanimator = instance_create_depth(owner.x, owner.y, -1, animator)
-	with(varanimator){struct = other}
+		audio_sound_gain(global.background_music, 1, 0)
+		audio_play_sound(sound, 0, 0)
+		var varanimator = instance_create_depth(owner.x, owner.y, -1, animator)
+		with(varanimator){struct = other}
 	}
 	turnsLeft = max(turnsLeft - 1, 0)
 }
@@ -104,14 +104,13 @@ function scrStatusAilmentStandardStart() {
 function scrConfusedEffect() {
 	if(symptomatic) {
 		with(owner) {
-			var varselfhit = new scrMove(obj_hit_animation,sound_hit,
-			,STANDARD_MOVEDAMAGE,,,,,,, 1, DAMAGEPARADIGMS.elementless,, )
+			var varselfhit = new moveConstruct(MOVES.tackle)
 		}
 		with(varselfhit) {
+			damageParadigm = DAMAGEPARADIGMS.elementless
 			owner.HP -= damage_calculate(owner)
 		}
-	}
-	
+	}	
 }
 
 
@@ -127,7 +126,7 @@ function scrConfusionImplementable(){with(owner) return  !(asleep.applied or fro
 function paralyzedWillAnimate(){with(owner) return paralyzed.symptomatic and !(asleep.applied or frozen.applied) }
 	
 	function ailmentStandardEnd() {
-	audio_resume_sound(global.background_music)
+	audio_sound_gain(global.background_music, 1, 0)
 	scrEffect()
 	with(owner) {
 		if(HP > 0) scr_perform_status_ailment()

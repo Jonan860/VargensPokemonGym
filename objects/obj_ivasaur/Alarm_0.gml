@@ -1,2 +1,0 @@
-global.phase = PHASES.attack
-

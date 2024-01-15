@@ -57,7 +57,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0c4013aa-7f7b-4549-ae63-a7e581de1c37","path":"sprites/spr_bulbasaur/spr_bulbasaur.yy",},},},"Disabled":false,"id":"1e2a9544-253b-4edd-810e-859714c6adaa","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 85,
     "yorigin": 90,

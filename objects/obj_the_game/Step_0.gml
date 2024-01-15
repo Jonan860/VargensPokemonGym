@@ -1,7 +1,7 @@
 with(obj_trainer) {
 	if(active_pokemon != noone) scrDeath()
 	
-	if(object_index != obj_amber) {
+	if(id != global.amber) {
 		switch(room) {
 			case roomWorld: scrWorld(); break;
 			case roomMatch: scrMatch(); break;
@@ -15,6 +15,8 @@ with(obj_trainer) {
 		scrPerformStatusAilment()
 	}
 }
+
+
 
 
 

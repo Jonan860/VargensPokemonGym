@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_win_girl",
-    "path": "sprites/spr_win_girl/spr_win_girl.yy",
+    "name": "spr_amber_original",
+    "path": "sprites/spr_amber_original/spr_amber_original.yy",
   },
   "spriteMaskId": null,
   "visible": true,

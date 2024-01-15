@@ -12,6 +12,9 @@ experience = 0
 exp_needed = (power(level, 4)) * (level - 4)  ///
 xstart = x; ystart = y;
 sound = sound_cow
+
+
+
 confused = new statusAilment(AILMENTS.confused)
 asleep = new statusAilment(AILMENTS.asleep)
 paralyzed = new statusAilment(AILMENTS.paralyzed)
@@ -35,7 +38,7 @@ die = function() {
 	alive = 0
 }
 
-status_text = 0
+status_text = ""
 
 scr_ai = function(){}
 
@@ -58,7 +61,13 @@ moveToDaycare = function() {
 }
 
 daycareHeal = function(healAmount) {
-	HP = HP > 0 ? min(HP + healAmount, max_HP) : healAmount/2 	
+	HP = HP > 0 ? min(HP + healAmount, max_HP) : healAmount/2
+	for(var i = 0; i < ds_list_size(movesList); i++) {
+		with(movesList[|i]) {
+			pp = ppMax
+		}
+	}
+	resetStatusAilment()
 	alive = 1
 }
 
@@ -164,12 +173,16 @@ load = function(saveStruct = global.saveData) {
 	}
 	
 	
-	if(struct._active_pokemon and isBattleRoom(asset_get_index(saveStruct._room)) and scrContains(owner,global.enemy,global.amber)) {
+	if(struct._active_pokemon and isBattleRoom(asset_get_index(saveStruct._room)) and scrContains(owner, global.enemy, global.amber)) {
 		owner.active_pokemon = id
 		visible = 1
 		active = 1
 		owner.visible = 0
-		
+		if(owner == global.amber) {
+			with(obj_move_button) {instance_destroy()}
+			
+			scr_create_move_buttons()
+		}
 	}
 	
 	alive = struct._alive

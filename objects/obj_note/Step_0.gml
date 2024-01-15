@@ -8,7 +8,7 @@ if(audio_is_playing(sound_sing)){
 		scr_put_to_sleep(global.amber.active_pokemon)
 	}
 
-	audio_resume_sound(global.background_music)
+	audio_sound_gain(global.background_music, 1, 0)
 	global.phase = PHASES.choosing
 	global.turn = TURNS.Amber
 	instance_destroy()

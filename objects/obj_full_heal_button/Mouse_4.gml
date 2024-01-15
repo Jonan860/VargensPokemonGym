@@ -10,8 +10,10 @@ for(var i = 0; i < ds_list_size(global.amber.active_pokemon.statusAilmentList); 
 	}
 }
 if(hasBeenUsed) {
-	global.amber.fullHeal.count -= 1
-	global.amber.active_pokemon.action_bar += global.amber.active_pokemon.max_action_bar
+	with(global.amber) {
+		fullHeal.count -= 1
+		active_pokemon.action_bar += active_pokemon.max_action_bar
+	}
 	scr_turn_decision()
 	with(obj_item_buttons){instance_destroy()}
 }

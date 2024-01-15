@@ -10,9 +10,7 @@ name = "Geodude"
 global.geodude = id
 alarm_counter = 5
 sound = sound_its_geodude
-if(global.player == PLAYERS.Jonathan) {
-	alive = 0
-}
+
 if(room=difficulty) {
 	alarm[0] = 45 * room_speed
 }

@@ -57,7 +57,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"26beaff1-4252-46c7-8826-60a671c34f0f","path":"sprites/spr_jigglypuff1/spr_jigglypuff1.yy",},},},"Disabled":false,"id":"6bdce3d8-29c2-44f0-b1ce-8537b7f95003","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 125,
     "yorigin": 125,

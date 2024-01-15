@@ -1,7 +1,9 @@
 event_inherited()
 roomMatch = room_jansson
-roomWorld = jansson_husmus_gym
+roomWorld = room_jansson_husmus_gym
 global.Jansson = id
+world_sprite = spr_jansson_world
+battle_sprite = spr_jansson_original
 camping = 1
 meowth = instance_create_depth(opponent_x, opponent_y, 0, obj_meowth)
 espeon = instance_create_depth(opponent_x, opponent_y, 0, obj_espeon)
@@ -34,8 +36,7 @@ scrMatch = method(undefined, scrEnemyMatch)
 
 sprDefeatBubble = spr_jansson_defeat_bubble
 sprVictoryBubble = spr_husmusen_victory_bubble
-sprWorld = spr_jansson
-sprMatch = spr_jansson
+
 
 isAmberApproachable = function() {
 	var y_distance = abs(y - global.amber.y)
@@ -45,7 +46,7 @@ isAmberApproachable = function() {
 		var jansson_distance = distance_to_object(global.Jansson)
 	}
 
-	return y_distance < 40 and jansson_distance < husmus_distance or global.Husmusen.defeated
+	return y_distance < 40 and jansson_distance < husmus_distance or global.Husmusen != noone and global.Husmusen.defeated
 }
 
 getOpponent = function(){return global.amber}

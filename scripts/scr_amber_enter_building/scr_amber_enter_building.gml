@@ -4,6 +4,7 @@ function scr_amber_enter_building() {
 			if(instance_position(x, y - 64, obj_reinard_rav) >= 0) {
 				global.phase = PHASES.reinardShop
 				moveable = 0
+				world_x = x; world_y = y;
 				scr_goto_room(room_shop)
 			}
 		}
@@ -14,6 +15,7 @@ function scr_amber_enter_building() {
 				if(instance_position(x, y - 64, obj_sakura) >= 0) {
 					global.phase = PHASES.Sakuradaycareentrancehall 
 					moveable = 0
+					world_x = x; world_y = y;
 					scr_goto_room(room_sakura_daycare)
 				}
 			}

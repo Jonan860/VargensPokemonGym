@@ -11,7 +11,8 @@ function load_game() {
 
 
 	with(obj_trainer) {instance_destroy()}
-
+	with(shop_manager) {instance_destroy()}
+	global.shopManager = instance_create_depth(0, 0, 0, shop_manager)
 
 	scr_goto_room(asset_get_index(global.saveData._room))
 
@@ -76,7 +77,7 @@ function load_globals(saveStruct) {
 	global.enemy = saveStruct._global.enemy
 	global.last_room = saveStruct._global.last_room
 	global.move = saveStruct._global.move
-	if(saveStruct == global.saveData){
+	if(saveStruct == global.saveData) {
 		global.saveBeforeBattle = saveStruct._global.saveBeforeBattle
 	}
 }

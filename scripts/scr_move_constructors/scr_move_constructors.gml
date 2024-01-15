@@ -35,12 +35,13 @@ opponent = getOpponent()
 var miss = !checkForHit(opponent)
 global.phase = miss ? PHASES.attackMiss : PHASES.attackHit
 audio_play_sound(sound, 0, 0) //might turn of background
-audio_pause_sound(global.background_music)
+audio_sound_gain(global.background_music, lowVolume, 0)
 var varAnimator = instance_create_depth(owner.x, owner.y, 0, animator)
 	with(varAnimator) {
 		struct = other
 		x += Xtranslation * sign(opponent.x - struct.owner.x)
-		y += Ytranslation * sign(opponent.y - struct.owner.y)
+		y += Ytranslation
+		xstart = x; ystart = y
 	}
 }
 
@@ -50,10 +51,10 @@ function thunderStart() {
 		global.phase = PHASES.attackHit
 		var riddle = instance_create_depth(room_width / 2, room_height / 2, 0, obj_riddle_bar)
 		with(riddle){owner = other}
-		audio_pause_sound(global.background_music)
+		audio_sound_gain(global.background_music, lowVolume, 0)
 		audio_play_sound(sound_na_na_na_thunder, 0, 0)
 	} else {
-		number_correct_answer = choose(4,5,6,7,8)
+		number_correct_answer = choose(4, 5, 6, 7, 8)
 		scr_perform_start()
 	}
 }
@@ -79,6 +80,7 @@ function moveDamageEffect(){opponent.HP -= damage_calculate(opponent)}
 function tailWhipEffect(){opponent.defence_bonus = max(opponent.defence_bonus - 1, -5)}
 function sandAttackEffect(){with(opponent){accuracy_bonus = max(accuracy_bonus - 1, -5)}}
 function singEffect(){scr_put_to_sleep(opponent)}
+function nightmareEffect(){(opponent.nightmared.apply())}
 
 	
 function dreamEaterEffect() {
@@ -210,7 +212,7 @@ function moveEnumToButton(_enum) {
 		case MOVES.leer : return obj_leer_button;
 		case MOVES.psyCutter : return obj_psy_cutter_button;
 		case MOVES.rockThrow : return obj_rock_throw_button;
-		case MOVES.tailWhip : return obj_tail_whip;
+		case MOVES.tailWhip : return obj_tail_whip_button;
 		case MOVES.thunder : return obj_thunder_button;
 		case MOVES.thundershock : return obj_thundershock_button;
 		case MOVES.vineWhip : return obj_wine_whip_button;
@@ -289,7 +291,7 @@ function MoveEnumToEffect(_enum) {
 		case MOVES.hypnosis : return method(undefined, hypnosisEffect);
 		case MOVES.leer : return method(undefined, leerEffect);
 		case MOVES.lick : return method(undefined, lickEffect);
-		case MOVES.nightmare : return method(undefined, nightmaredEffect);
+		case MOVES.nightmare : return method(undefined, nightmareEffect);
 		case MOVES.quickAttack : return method(undefined, quickAttackEffect);
 		case MOVES.rollout : return method(undefined, rolloutEffect);
 		case MOVES.sandAttack : return method(undefined, sandAttackEffect);
@@ -317,6 +319,7 @@ function moveEnumToMaxPP(_enum) {
 	switch(_enum) {
 		case MOVES.amnesia : return 2;
 		case MOVES.charm : return 2;
+		case MOVES.defenceCurl : return 5;
 		case MOVES.growl : return 5;
 		case MOVES.hypnosis : return 3;
 		case MOVES.leer : return 5;
@@ -324,6 +327,7 @@ function moveEnumToMaxPP(_enum) {
 		case MOVES.sing : return 2;
 		case MOVES.superFang : return 2;
 		case MOVES.tailWhip : return 5;
+		case MOVES.thunder : return 1
 		default : return 0;
 	}
 }
@@ -336,7 +340,7 @@ function moveEnumToDamage(_enum) {
 		case MOVES.ember : return STANDARD_MOVEDAMAGE;
 		case MOVES.lick : return STANDARD_MOVEDAMAGE;
 		case MOVES.nightmare : return STANDARD_MOVEDAMAGE; 
-		case MOVES.psyCutter : return 2 * STANDARD_MOVEDAMAGE;
+		case MOVES.psyCutter : return STANDARD_MOVEDAMAGE;
 		case MOVES.quickAttack : return STANDARD_MOVEDAMAGE / 2; 
 		case MOVES.rockThrow : return STANDARD_MOVEDAMAGE; 
 		case MOVES.rollout : return STANDARD_MOVEDAMAGE / 2; 

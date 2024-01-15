@@ -1,6 +1,7 @@
 
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
+scrSetContrastingTextColor()
 draw_self()
 switch(global.player) {
 	case PLAYERS.Ida : 
@@ -14,6 +15,6 @@ switch(global.player) {
 draw_text_transformed(x, y, string_hash_to_newline(keyboard_string), 2, 2, 0);
 draw_text_transformed(x, y - 50, string_hash_to_newline(str), 2, 2, 0);
 	
-draw_set_halign(fa_top)
-draw_set_valign(fa_left)
+draw_set_color(c_green)
+resetDrawAlign()
 
